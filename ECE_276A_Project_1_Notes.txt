@@ -1,0 +1,44 @@
+276A Project 1 Notes
+
+Steps
+1. Train color model from pixel data
+  - Folder: pixel_classification - classify red, blue, green pixels
+    - Folder: Data
+      - training + validation sets
+        - red, blue, green for each
+        - 28x28 same value RGB images
+    - Implement logistic regression, naive bayes, or gaussian discriminant analysis for pixel color classification
+      - Let's use Naive Bayes
+    - Classify text images as red, gree, and blue pixels
+    - Files show how to collect labeled training data in format X=R^(nx3), y={1,2,3}^3, where 1=r, 2=g, 3=b, n=#examples
+    - There's a file that shows how to evaluate model on validation set
+    - Use starter code "pixel_classifier.py"
+      - Implement function "classify()"
+      - Do not change file name, class name, function names, function arguments in this file
+2. Train color model to recognize recycling-bin blue color + use model to segment test images into blue regions
+  - Folder: bin_detection - given blue regions, detect blue recycling bins + draw bounding box around each
+    - Identify blue color regions
+      - Implement model from part 1 - let's use Naive Bayes
+      - Hand-label training images for blue recycling bin color
+      - Consider right color space
+        - Test each model on validation set to evaluate performance and which has better parameters and color space choice
+    - Use shape statistics + high-level features to decide if any recycling bins in image
+      - Try all possible combinations of (sufficienty large) blue regions
+        - Use open cv's findContours
+      - Compute recycling-bin shape "similarity" score - already in premade code
+        - Use Scikit-Image's regionprops
+      - Identify coordinates of bounding box regions with high "similarity" score
+        - Use regionprops function from scikit-image package
+    - Use starter code "bin_detector.py"
+      - Implement functions "segment_image()" + "get_bounding_boxes"
+        - Do not change file names, class names, function names, or function arguments
+    - Discuss model and pixel classification + recycling bin detection results in report
+
+
+
+
+
+
+
+
+
